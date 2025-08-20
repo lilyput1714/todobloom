@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 100% 97%;
+    --foreground: 260 10% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 10% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 10% 25%;
+    --primary: 264 21% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 100% 87%;
+    --secondary-foreground: 260 10% 25%;
+    --muted: 255 50% 95%;
+    --muted-foreground: 260 10% 45%;
+    --accent: 255 100% 87%;
+    --accent-foreground: 260 10% 25%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 255 30% 90%;
+    --input: 0 0% 100%;
+    --ring: 264 21% 59%;
+    --radius: 0.8rem;
+  }
+
+  .dark {
+    --background: 260 10% 10%;
+    --foreground: 255 10% 85%;
+    --card: 260 10% 15%;
+    --card-foreground: 255 10% 85%;
+    --popover: 260 10% 10%;
+    --popover-foreground: 255 10% 85%;
+    --primary: 255 100% 87%;
+    --primary-foreground: 260 10% 10%;
+    --secondary: 264 21% 59%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 260 10% 20%;
+    --muted-foreground: 255 10% 65%;
+    --accent: 264 21% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 10% 25%;
+    --input: 260 10% 20%;
+    --ring: 255 100% 87%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .todo-item {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .todo-item-exit {
+    animation: fadeOutShrink 0.5s ease-in forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOutShrink {
+    from {
+      opacity: 1;
+      transform: scaleY(1);
+      max-height: 100px; /* or initial height */
+    }
+    to {
+      opacity: 0;
+      transform: scaleY(0);
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      border-width: 0;
+    }
+  }
+}
